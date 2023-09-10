@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 
@@ -13,7 +14,25 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = DB::select('select * from students');
+        // dd($students);
+
+        $students = DB::select('select * from students where id = ?', [1]) ;
+        // dd($students);
+
+        $students = DB::select('select * from students where city = ?', ['Damascus']) ;
+        // dd($students);
+
+        $students = DB::select('select * from students where city = :city', ['city'=>'New Jeremyberg']) ;
+        // dd($students);
+
+        $students = DB::select('select * from students where city = :city and id > :id ', ['city'=>'Damascus','id'=>'1']) ;
+        // dd($students);
+
+        $students = DB::select('select * from students where city = :city and id > 1 ', ['city'=>'Damascus']) ;
+        // dd($students);
+
+        return view('students',['students' => $students]);
     }
 
     /**

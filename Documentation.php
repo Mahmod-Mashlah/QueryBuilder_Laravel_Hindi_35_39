@@ -45,35 +45,31 @@
 
  */
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//13:47                                            Select() Method
- /*
-    - select returns an array of results
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///13:47                                            Select() Method
+/*
+/   - select returns an array of results
+/
+/   Db::select($sql_query, $parameters_bindings)
+/
+/   $sql_query : the query you want to execute
+/   $parameters_bindings : the parameters values in the $sql_query
+/
+/
+/   - example :
+/     - We make a Student Migration, Model, Controller, Requests, Policy , Factory and Seeder
+/     - We make a dummy data with student seeder and factory by th command : php artisan migrate:fresh --seed
+/
+/       on student_table we have id,name,email and city :
+/
+        $students = DB::select('select * from students');
+        $students = DB::select('select * from students where id = ?', [1]) ;
+        $students = DB::select('select * from students where city = ?', ['Damascus']) ;
+        $students = DB::select('select * from students where city = :city', ['city'=>'New Jeremyberg']) ;
+        $students = DB::select('select * from students where city = :city and id > :id ', ['city'=>'Damascus','id'=>'1']) ;
+        $students = DB::select('select * from students where city = :city and id > 1 ', ['city'=>'Damascus']) ;
 
-    Db::select($sql_query, $parameters_bindings)
 
-    $sql_query : the query you want to execute
-    $parameters_bindings : the parameters values in the $sql_query
-
-
-    - example :
-        - We make a Student Migration, Model, Controller, Requests, Policy , Factory and Seeder
-        - We make a dummy data with student seeder and factory by th command : php artisan migrate:fresh --seed
-
-        on student_table we have id,name,email and city :
-
-    $students = DB::select('select * from students') ;
-    $students = DB::select('select * from students where id = ?', [1]) ;
-    $students = DB::select('select * from students where id = :id', ['id'=>1]) ;
-
-
-
-
- */
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
- /*
 
 
  */
@@ -246,4 +242,9 @@
 
  */
 
-?>
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+ /*
+
+
+ */
