@@ -79,12 +79,26 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+
+
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    public function transaction()
+    {
+        DB::transaction(function () {
+
+            // DB::insert('insert into students (name, email, city) values (:name, :email, :city)', ['name'=> $name,'email' => $email ,'city' => $city]);
+            DB::update('update students set city = :city  where id = :id ', ['city' => 'Latakia', 'id' => 2]);
+            DB::delete('delete from students where id > ?', [2]);
+
+        },3);
+
+        // DB::beginTransaction();
+        // DB::commit();
+        // DB::rollback();
+    }
+
     public function edit(Student $student)
     {
         //

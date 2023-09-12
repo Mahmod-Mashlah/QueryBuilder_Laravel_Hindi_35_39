@@ -8,6 +8,11 @@
  *
  */
 
+
+//___________________________________________________________________________________________________________________________//
+//_____________________________________ 35. How to Run SQL Queries in Laravel (Hindi) _______________________________________//
+//___________________________________________________________________________________________________________________________//
+
  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //                                            config\database.php
  /*
@@ -186,18 +191,41 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//42:35                                     unprepared statement
  /*
+        it is a query without any binding parameters
 
+        ( IT DOESN'T WORK now in laravel 10)
 
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//44:00                                     Database Transactions
  /*
 
+    used to run a set of operations within a database transaction :
 
+    The WHOLE transaction will be applied or cancelled
+
+    examples :
+
+    DB::transaction(function () {
+
+            // DB::insert('insert into students (name, email, city) values (:name, :email, :city)', ['name'=> $name,'email' => $email ,'city' => $city]);
+            DB::update('update students set city = :city  where id = :id ', ['city' => 'Latakia', 'id' => 2]);
+            DB::delete('delete from students where id > ?', [2]);
+
+        },3);
+
+    *******
+    he didn't explain these topics :
+    // DB::beginTransaction();
+    // DB::commit();
+    // DB::rollback();
+    *******
+                                                THE END OF VIDEO 35 👋
  */
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
