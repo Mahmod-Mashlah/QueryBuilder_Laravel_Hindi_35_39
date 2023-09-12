@@ -127,6 +127,11 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+         // way 1 :
+    DB::delete('delete from students where id > ?', [2]);
+
+    // way 2 :
+     DB::delete('delete from students where id > :id ', ['id' => 2]);
+
     }
 }

@@ -126,7 +126,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //37:00                                             update() Method
  /*
-    used for update existing row values (one column or more)
+    used for update existing row (or more ) values (one column or more)
 
     grammer :
 
@@ -165,9 +165,23 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//41:00                                              delete() Method
  /*
+    used for delete existing row (or more )
 
+    grammer :
+
+    DB::update($query, $parameters_bindings);
+
+        DB::delete('delete from students where id = ?', [4]);  // DONT FORGET 'FROM' in the query
+
+    examples :
+
+    // way 1 :
+    DB::delete('delete from students where id > ?', [2]);
+
+    // way 2 :
+     DB::delete('delete from students where id > :id ', ['id' => 2]);
 
  */
 
