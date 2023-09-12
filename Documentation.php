@@ -50,6 +50,8 @@
 /*
 /   - select returns an array of results
 /
+/   grammer :
+/
 /   Db::select($sql_query, $parameters_bindings)
 /
 /   $sql_query : the query you want to execute
@@ -75,9 +77,49 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//  30:00                                           insert() Method
  /*
+     grammer :
 
+     DB::insert($sql_query, $parameters_bindings);
+
+     DB::insert('insert into users (id, name) values (?, ?)', [1, 'Dayle'])
+
+     $sql_query : the query you want to execute
+     $parameters_bindings : the parameters values in the $sql_query
+
+    - examples (on the student controller 'store method'):
+
+    ///////////////////////
+    way#1 :
+
+    $name = "John Doe";
+    $email = "johndoe@example.com";
+    $city = "New York";
+
+    DB::table('students')->insert(['name' => $name, 'email' => $email, 'city' => $city]);
+
+    ///////////////////////
+
+    way#2 :
+
+    DB::insert('insert into students (name, email, city) values (?, ?, ?)', ['insert', 'insert@gmail.com', 'Aleppo']);
+
+    ///////////////////////
+
+    way#3 :
+
+    DB::insert('insert into students (name, email, city) values (:name, :email, :city)', ['name'=>'insert','email' =>'insert@gmail.com','city' =>'Aleppo']);
+
+    ///////////////////////
+
+    way#4 :
+
+    $name = "John Doe";
+    $email = "johndoe@example.com";
+    $city = "New York";
+
+    DB::insert('insert into students (name, email, city) values (:name, :email, :city)', ['name'=> $name,'email' => $email ,'city' => $city]);
 
  */
 
