@@ -17,26 +17,26 @@ class StudentController extends Controller
         $students = DB::select('select * from students');
         // dd($students);
 
-        $students = DB::select('select * from students where id = ?', [1]) ;
+        $students = DB::select('select * from students where id = ?', [1]);
         // dd($students);
 
-        $students = DB::select('select * from students where city = ?', ['Damascus']) ;
+        $students = DB::select('select * from students where city = ?', ['Damascus']);
         // dd($students);
 
-        $students = DB::select('select * from students where city = :city', ['city'=>'New Jeremyberg']) ;
+        $students = DB::select('select * from students where city = :city', ['city' => 'New Jeremyberg']);
         // dd($students);
 
-        $students = DB::select('select * from students where city = :city and id > :id ', ['city'=>'Damascus','id'=>'1']) ;
+        $students = DB::select('select * from students where city = :city and id > :id ', ['city' => 'Damascus', 'id' => '1']);
         // dd($students);
 
-        $students = DB::select('select * from students where city = :city and id > 1 ', ['city'=>'Damascus']) ;
+        $students = DB::select('select * from students where city = :city and id > 1 ', ['city' => 'Damascus']);
         // dd($students);
 
 
 
         $students = DB::select('select * from students');
 
-        return view('students',['students' => $students]);
+        return view('students', ['students' => $students]);
     }
 
     /**
@@ -95,7 +95,31 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
-        //
+
+        // way#1 :
+
+        DB::update('update students set city = :city  where id = 2 ', ['Damascus']);
+
+        //way#2 :
+
+        DB::update('update students set city = :city  where id = :id ', ['Homs', 2]);
+
+        //way#3 :
+
+        DB::update('update students set city = :city  where id = :id ', ['city' => 'Latakia', 'id' => 2]);
+
+        // way#4 :
+
+        $id = 1;
+        $city = 'Damascus';
+        DB::update('update students set city = ?  where id >= ? ', [$city, $id]);
+
+        // way#5 :
+
+        $id = 1;
+        $city = 'Damascus';
+        DB::update('update students set city = :city  where id >= :id ', ['city' => $city, 'id' => $id]);
+
     }
 
     /**

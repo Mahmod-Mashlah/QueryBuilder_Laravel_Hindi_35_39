@@ -124,8 +124,42 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//37:00                                             update() Method
  /*
+    used for update existing row values (one column or more)
+
+    grammer :
+
+    DB::update($query, $parameters_bindings);
+
+    DB::update('update users set votes = 100 where name = ?', ['John']);
+
+    examples :
+
+       // way#1 :
+
+       DB::update('update students set city = :city  where id = 2 ', ['Damascus']);
+
+       //way#2 :
+
+       DB::update('update students set city = :city  where id = :id ', ['Homs',2]);
+
+       //way#3 :
+
+       DB::update('update students set city = :city  where id = :id ', ['city'=>'Latakia','id' => 2]);
+
+       // way#4 :
+
+       $id = 1 ;
+       $city = 'Damascus' ;
+       DB::update('update students set city = ?  where id >= ? ', [ $city, $id ]);
+
+       // way#5 :
+
+       $id = 1 ;
+       $city = 'Damascus' ;
+       DB::update('update students set city = :city  where id >= :id ', ['city'=>$city,'id' => $id]);
+
 
 
  */
