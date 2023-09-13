@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/students', [StudentController::class,'index']);
+
+Route::get('/students/36', [QueryBuilder_36_Controller::class,'index']);
