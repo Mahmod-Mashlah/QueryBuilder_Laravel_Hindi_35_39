@@ -19,10 +19,31 @@ class QueryBuilder_36_Controller extends Controller
 
         $student_find = DB::table('students')->find(3);
 
+        $students_pluck_one_column = DB::table('students')->pluck('name');
+
+        $students_pluck_tow_columns = DB::table('students')->pluck('city','name');
+
+        /*
+        $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
+            foreach ($students as $student) {
+                echo 'chunk date : <br>';
+                echo $student->name;
+                echo $student->email;
+                echo '<br>';
+            }
+            echo '<br>';
+            return true; // return false to show only first 3 rows
+        });
+        });
+        */
         return view('students36', [
             'student_first' => $student ,
              'student_email' => $student_email ,
-             'student_find' => $student_find ]);
+             'student_find' => $student_find ,
+            'students_pluck_one_column' => $students_pluck_one_column ,
+            'students_pluck_tow_columns'=> $students_pluck_tow_columns,
+           /* 'students_chunk'=> $students_chunk, */
+         ]);
     }
 
     /**

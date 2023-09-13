@@ -275,16 +275,37 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//24:30                                         Retrieving one column multiple Rows with pluck() Method
  /*
+
+
+
+        $students_pluck_one_column = DB::table('students')->pluck('name');
+
+        $students_pluck_tow_columns = DB::table('students')->pluck('city','name'); // city is the value , name is the key
 
 
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//26:30                                         chunking results
  /*
+        The chunk method in Laravel is used to process a large set of database records in chunks, instead of
+        loading all the records into memory at once.
+         This can be useful when dealing with a large number of records to prevent memory issues.
 
+        The syntax of the chunk method is as follows:
+
+        $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
+            foreach ($students as $student) {
+                echo 'chunk date : <br>';
+                echo $student->name;
+                echo $student->email;
+                echo '<br>';
+            }
+            echo '<br>';
+            return true; // return false to show only first 3 rows
+        });
 
  */
 

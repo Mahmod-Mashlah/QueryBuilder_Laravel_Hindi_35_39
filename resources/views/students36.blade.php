@@ -43,5 +43,54 @@
         <br>
     <hr>
 
+    <br>
+        <b>One Column  [ By pluck () Method to show only names ]: </b>
+        <br>
+        <br>
+        <pre>
+            @foreach ($students_pluck_one_column as $name)
+
+                {{ $name }},
+
+            @endforeach
+            </pre>
+        <br>
+    <hr>
+
+    <br>
+        <b>One Column  [ By pluck () Method to show names As key and cities as a values]: </b>
+        <br>
+        <br>
+        <pre>
+            @foreach ($students_pluck_tow_columns as $name => $city)
+
+                name : {{ $name }} , city : {{ $city }},
+
+            @endforeach
+            </pre>
+        <br>
+    <hr>
+
+    <br>
+        <b>multiple Rows  [ By chunk () Method ]: </b>
+        <br>
+        <br>
+        <pre>
+            @php
+                $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
+            foreach ($students as $student) {
+                echo 'chunk date : <br>';
+                echo $student->name;
+                echo $student->email;
+                echo '<br>';
+            }
+            echo '<br>';
+            return true; // return false to show only first 3 rows
+        });
+            @endphp
+            </pre>
+        <br>
+    <hr>
+
 </body>
 </html>
