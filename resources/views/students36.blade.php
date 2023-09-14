@@ -90,6 +90,19 @@
             @endphp
             </pre>
         <br>
+    <hr color="red">
+    <hr color="red">
+    <hr color="red">
+
+    <br>
+        <b>Aggregation Methods : </b>
+        <br>
+        <br>
+            <b><i>Count Method</i> : </b> students count : is  {{ $students_count }}    <br>
+            <b><i>min Method</i> : </b> students min 'id' column is : {{ $students_min }}       <br>
+            <b><i>max Method</i> : </b> students max 'id' column is : {{ $students_max }}       <br>
+            <b><i>sum Method</i> : </b> students sum 'id' column is : {{ $students_sum }}       <br>
+        <br>
     <hr>
 
 </body>

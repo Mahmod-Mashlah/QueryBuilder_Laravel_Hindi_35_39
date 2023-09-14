@@ -310,9 +310,17 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
- /*
+//30:55                                         Aggregate () Methods
 
+ /*
+    //count :
+                     $students_count = DB::table('students')->count();
+    //max value :
+                     $students_min = DB::table('students')->min('id');  // you should enter the column name
+    //min value :
+                     $students_max = DB::table('students')->max('id');  // you should enter the column name
+    //sum value :
+                     $students_sum = DB::table('students')->sum('id');
 
  */
 

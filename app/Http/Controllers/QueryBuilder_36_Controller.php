@@ -23,6 +23,16 @@ class QueryBuilder_36_Controller extends Controller
 
         $students_pluck_tow_columns = DB::table('students')->pluck('city','name');
 
+        // Aggregate Methods :
+            //count :
+            $students_count = DB::table('students')->count();
+            //min value :
+            $students_min = DB::table('students')->min('id');
+            //max value :
+            $students_max = DB::table('students')->max('id');
+            //sum value :
+            $students_sum = DB::table('students')->sum('id');
+
         /*
         $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
             foreach ($students as $student) {
@@ -43,6 +53,10 @@ class QueryBuilder_36_Controller extends Controller
             'students_pluck_one_column' => $students_pluck_one_column ,
             'students_pluck_tow_columns'=> $students_pluck_tow_columns,
            /* 'students_chunk'=> $students_chunk, */
+            'students_count'=> $students_count,
+            'students_min'=> $students_min,
+            'students_max'=> $students_max,
+            'students_sum'=> $students_sum,
          ]);
     }
 
