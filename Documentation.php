@@ -325,8 +325,23 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//33:00                                         exists() & doesntExist() Methods
  /*
+        //exists Method :
+
+            $students_exist = DB::table('students')->where('id', '=', 5)->exists(); //true
+
+            if ($students_exist = DB::table('students')->where('id', '=', 5)->exists()) {
+                return true;
+            }
+
+        //doesntExist Method :
+
+            $students_doesntExist = DB::table('students')->where('id', '=', 5)->doesntExist(); //false (Null in View)
+
+            if ($students_doesntExist = DB::table('students')->where('id', '=', 5)->doesntExist() ) {
+                return false;
+            }
 
 
  */

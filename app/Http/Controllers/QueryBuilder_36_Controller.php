@@ -32,6 +32,19 @@ class QueryBuilder_36_Controller extends Controller
             $students_max = DB::table('students')->max('id');
             //sum value :
             $students_sum = DB::table('students')->sum('id');
+            //exists Method :
+            $students_exist = DB::table('students')->where('id', '=', 5)->exists(); //true
+
+            if ($students_exist = DB::table('students')->where('id', '=', 5)->exists()) {
+                // return true;
+            }
+
+            //doesntExist Method :
+            $students_doesntExist = DB::table('students')->where('id', '=', 5)->doesntExist(); //false (Null in View)
+
+            if ($students_doesntExist = DB::table('students')->where('id', '=', 5)->doesntExist() ) {
+                // return false;
+            }
 
         /*
         $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
@@ -57,6 +70,11 @@ class QueryBuilder_36_Controller extends Controller
             'students_min'=> $students_min,
             'students_max'=> $students_max,
             'students_sum'=> $students_sum,
+
+            'students_exist'=> $students_exist,
+            'students_doesntExist'=> $students_doesntExist,
+
+
          ]);
     }
 

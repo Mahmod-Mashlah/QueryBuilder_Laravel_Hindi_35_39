@@ -105,5 +105,14 @@
         <br>
     <hr>
 
+    <br>
+        <b>exists() & doesntExist() Methods : </b>
+        <br>
+        <br>
+            <b><i>exist()</i> : </b> {{ $students_exist }}    <br>
+            <b><i>doesntExist()</i> : </b> {{ $students_doesntExist }} <br>
+        <br>
+    <hr>
+
 </body>
 </html>
