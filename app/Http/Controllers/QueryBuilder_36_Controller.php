@@ -53,9 +53,11 @@ class QueryBuilder_36_Controller extends Controller
 
             // to select Distinct rows :
             $students_distinct = DB::table('students')->distinct()->get(); // without duplicates or repeated rows
-
-
-        /*
+            // to get rows with WHERE Method :
+            $students_where_id_equal_4 = DB::table('students')->where('id', '=',4)->get();
+            $students_where_get_one_row_with_one_column_value = DB::table('students')->where('id', '=',4)->value('email');
+            $students_where_get_one_column_inOneRow_with_first_method = DB::table('students')->where('id', '=',4)->first('email');
+            /*
         $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
             foreach ($students as $student) {
                 echo 'chunk date : <br>';
@@ -85,6 +87,10 @@ class QueryBuilder_36_Controller extends Controller
             'students_select'=> $students_select,
             'students_select_all_columns'=> $students_select_all_columns,
             'students_distinct'=> $students_distinct,
+
+            'students_where_id_equal_4'=> $students_where_id_equal_4,
+            'students_where_get_one_row_with_one_column_value'=> $students_where_get_one_row_with_one_column_value,
+            'students_where_get_one_column_inOneRow_with_first_method'=> $students_where_get_one_column_inOneRow_with_first_method,
 
 
          ]);

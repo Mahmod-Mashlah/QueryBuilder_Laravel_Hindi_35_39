@@ -154,6 +154,46 @@
             @endforeach
             </pre>
         <br>
+
+    <hr color="red">
+    <hr color="red">
+    <hr color="red">
+
+
+    <br>
+        <b>Where Method get one row [ id = 4 ]: </b>
+        <br>
+        <br>
+        <pre>
+
+            details : {{ $students_where_id_equal_4 }}
+
+        </pre>
+        <br>
+    <hr>
+
+    <br>
+        <b>Where Method get one column ( email ) value in the record where [ id = 4 ]: </b>
+        <br>
+        <br>
+        <pre>
+
+            the email is : {{ $students_where_get_one_row_with_one_column_value }}
+
+        </pre>
+        <br>
+    <hr>
+
+    <br>
+        <b>Where Method get one column ( email ) value in the record where [ id = 4 ]: </b>
+        <br>
+        <br>
+        <pre>
+
+            the email is : {{ $students_where_get_one_column_inOneRow_with_first_method->email }}
+
+        </pre>
+        <br>
     <hr>
 
 </body>

@@ -370,9 +370,29 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//38:38                                         where() Method
  /*
+    Grammer :
 
+    $students_where = DB::table('tableName')->where('column', 'operator','value')->get();
+
+    examples :
+
+    // to get rows with WHERE Method :
+
+        $students_where = DB::table('students')->where('id', '=',4)->get();
+
+    // to get one row with where :
+
+        $students_where = DB::table('students')->where('id', '=',4)->first();
+
+    // way1 to get one column value with one row :
+
+        $students_where_get_one_row_with_one_column_value = DB::table('students')->where('id', '=',4)->value('email');
+
+    // way2 to get one column value with one row
+
+        $students_where_get_one_column_inOneRow_with_first_method = DB::table('students')->where('id', '=',4)->first('email');
 
  */
 
