@@ -114,5 +114,47 @@
         <br>
     <hr>
 
+    <br>
+        <b>Select Method [ only name and email ]: </b>
+        <br>
+        <br>
+        <pre>
+            @foreach ($students_select as $student)
+
+                name : {{ $student->name }} , email : {{ $student->email }},
+
+            @endforeach
+            </pre>
+        <br>
+    <hr>
+
+    <br>
+        <b>Select Method [ all columns ]: </b>
+        <br>
+        <br>
+        <pre>
+            @foreach ($students_select_all_columns as $student)
+
+                name : {{ $student->name }} , email : {{ $student->email }} , city : {{ $student->city }}
+
+            @endforeach
+            </pre>
+        <br>
+    <hr>
+
+    <br>
+        <b>Distinct Method [ all columns without duplicated data rows ]: </b>
+        <br>
+        <br>
+        <pre>
+            @foreach ($students_distinct as $student)
+
+                name : {{ $student->name }} , email : {{ $student->email }} , city : {{ $student->city }}
+
+            @endforeach
+            </pre>
+        <br>
+    <hr>
+
 </body>
 </html>

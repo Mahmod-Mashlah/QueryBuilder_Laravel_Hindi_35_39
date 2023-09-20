@@ -46,6 +46,15 @@ class QueryBuilder_36_Controller extends Controller
                 // return false;
             }
 
+            // to select specific columns :
+            $students_select = DB::table('students')->select('name','email')->get();
+            // to select all columns :
+            $students_select_all_columns = DB::table('students')->get();
+
+            // to select Distinct rows :
+            $students_distinct = DB::table('students')->distinct()->get(); // without duplicates or repeated rows
+
+
         /*
         $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
             foreach ($students as $student) {
@@ -73,6 +82,9 @@ class QueryBuilder_36_Controller extends Controller
 
             'students_exist'=> $students_exist,
             'students_doesntExist'=> $students_doesntExist,
+            'students_select'=> $students_select,
+            'students_select_all_columns'=> $students_select_all_columns,
+            'students_distinct'=> $students_distinct,
 
 
          ]);

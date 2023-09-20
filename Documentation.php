@@ -347,15 +347,24 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//36:00                                         select() Method
  /*
+            // to select specific columns :
 
+            $students_select = DB::table('students')->select('name','email')->get();
+
+            // to select all columns :
+
+            $students_select_all_columns = DB::table('students')->get();
 
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//37:50                                         distinct() Method
  /*
+            // to select Distinct rows :
+
+            $students_distinct = DB::table('students')->distinct()->get(); // without duplicates or repeated rows
 
 
  */
