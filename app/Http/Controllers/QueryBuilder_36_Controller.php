@@ -57,6 +57,11 @@ class QueryBuilder_36_Controller extends Controller
             $students_where_id_equal_4 = DB::table('students')->where('id', '=',4)->get();
             $students_where_get_one_row_with_one_column_value = DB::table('students')->where('id', '=',4)->value('email');
             $students_where_get_one_column_inOneRow_with_first_method = DB::table('students')->where('id', '=',4)->first('email');
+
+            $students_where_like_beginning_character = DB::table('students')->where('name', 'like','D%')->get();
+
+            $students_where_like_ending_character = DB::table('students')->where('name', 'like','%f')->get();
+
             /*
         $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
             foreach ($students as $student) {
@@ -92,6 +97,8 @@ class QueryBuilder_36_Controller extends Controller
             'students_where_get_one_row_with_one_column_value'=> $students_where_get_one_row_with_one_column_value,
             'students_where_get_one_column_inOneRow_with_first_method'=> $students_where_get_one_column_inOneRow_with_first_method,
 
+            'students_where_like_beginning_character'=> $students_where_like_beginning_character,
+            'students_where_like_ending_character'=> $students_where_like_ending_character,
 
          ]);
     }

@@ -376,25 +376,105 @@
 
     $students_where = DB::table('tableName')->where('column', 'operator','value')->get();
 
+    // the 'operator' parameter can be : = ,  != or <>  , > , < , <= , >= , like , not like , ilike (Case-insensitive version of LIKE. Only available in PostgreSQL) , NOT ILIKE (Case-insensitive version of NOT LIKE. Only available in PostgreSQL.
+
+    types of where methods :
+
+    - Basic Where Clauses: The most basic usage of where requires three arguments, column name, operator, and value.
+
+        $users = DB::table('users')->where('votes', '>', 100)->get();
+
+    - Where Between: The whereBetween method verifies that a column's value is between two values:
+
+        $users = DB::table('users')
+                ->whereBetween('votes', [1, 100])->get();
+
+    - Where Not Between: The whereNotBetween method verifies that a column's value lies outside of two values:
+
+        $users = DB::table('users')
+                ->whereNotBetween('votes', [1, 100])->get();
+
+    - Where In: The whereIn method verifies that a column's value is contained within the given array:
+
+        $users = DB::table('users')
+                ->whereIn('id', [1, 2, 3])->get();
+
+    - Where Not In: The whereNotIn method verifies that a column's value is not contained in the given array:
+
+        $users = DB::table('users')
+                ->whereNotIn('id', [1, 2, 3])->get();
+
+    - Where Null: The whereNull method verifies that the value of the column is NULL:
+
+        $users = DB::table('users')
+                ->whereNull('updated_at')->get();
+
+    - Where Not Null: The whereNotNull method verifies that the column's value is not NULL:
+
+        $users = DB::table('users')
+                ->whereNotNull('updated_at')->get();
+
+    - Where Date: The whereDate method is used to compare a column's value against a date:
+
+        $users = DB::table('users')
+                ->whereDate('created_at', '2016-12-31')->get();
+
+    - Where Month: The whereMonth method can be used to compare a column's value against a specific month:
+
+        $users = DB::table('users')
+                ->whereMonth('created_at', '12')->get();
+
+    - Where Day: The whereDay method can be used to compare a column's value against a specific day of a month:
+
+        $users = DB::table('users')
+                ->whereDay('created_at', '31')->get();
+
+    - Where Year: The whereYear method can be used to compare a column's value against a specific year:
+
+        $users = DB::table('users')
+                ->whereYear('created_at', '2016')->get();
+
+    - Where Column: The whereColumn method can be used to verify that two columns are equal:
+
+        $users = DB::table('users')
+                ->whereColumn('first_name', 'last_name')->get();
+
+    - Where Exists: The whereExists method can be used to write where exists SQL clauses:
+
+        $users = DB::table('users')
+                ->whereExists(function ($query) {
+                    $query->select(DB::raw(1))
+                            ->from('orders')
+                            ->whereRaw('orders.user_id = users.id');
+                })->get();
+
+    Here's an example of how to use these operators)
     examples :
 
     // to get rows with WHERE Method :
 
         $students_where = DB::table('students')->where('id', '=',4)->get();
 
-    // to get one row with where :
+        // to get one row with where :
 
         $students_where = DB::table('students')->where('id', '=',4)->first();
 
-    // way1 to get one column value with one row :
+        // way1 to get one column value with one row :
 
         $students_where_get_one_row_with_one_column_value = DB::table('students')->where('id', '=',4)->value('email');
 
-    // way2 to get one column value with one row
+        // way2 to get one column value with one row
 
         $students_where_get_one_column_inOneRow_with_first_method = DB::table('students')->where('id', '=',4)->first('email');
 
- */
+        // to get rows with like operator :
+          // in begin :
+            $students_where_like = DB::table('students')->where('name', 'like','s%')->get();
+          // in end :
+            $students_where_like_ending_character = DB::table('students')->where('name', 'like','%f')->get();
+
+
+          */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
