@@ -62,7 +62,21 @@ class QueryBuilder_36_Controller extends Controller
 
             $students_where_like_ending_character = DB::table('students')->where('name', 'like','%f')->get();
 
-            /*
+            $students_orWhere_eg_1 = DB::table('students')
+                                         ->where('id','5')
+                                           ->orWhere('name', 'like','%f')->get();
+
+            $students_orWhere_eg_2 = DB::table('students')
+                                         ->where('id','5')
+                                           ->orWhere('name', 'like','%f')
+                                             ->orWhere('name', 'like','A%')->get();
+
+            $students_orWhere_eg_3 = DB::table('students')
+                                         ->where('id','5')
+                                           ->orWhereBetween('id', [4,5])
+                                             ->orWhere('name', 'like','A%')->get();
+
+        /*
         $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
             foreach ($students as $student) {
                 echo 'chunk date : <br>';
@@ -74,6 +88,7 @@ class QueryBuilder_36_Controller extends Controller
             return true; // return false to show only first 3 rows
         });
         });
+
         */
         return view('students36', [
             'student_first' => $student ,
@@ -99,6 +114,10 @@ class QueryBuilder_36_Controller extends Controller
 
             'students_where_like_beginning_character'=> $students_where_like_beginning_character,
             'students_where_like_ending_character'=> $students_where_like_ending_character,
+
+            'students_orWhere_eg_1'=> $students_orWhere_eg_1,
+            'students_orWhere_eg_2'=> $students_orWhere_eg_2,
+            'students_orWhere_eg_3'=> $students_orWhere_eg_3,
 
          ]);
     }

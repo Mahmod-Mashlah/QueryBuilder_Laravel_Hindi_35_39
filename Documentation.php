@@ -477,9 +477,26 @@
           */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//41:55                                            orWhere() Method
  /*
+        all where methods can be with orwhere methods like :
+        orWhereBetween
 
+        examples :
+
+            $students_orWhere_eg_1 = DB::table('students')
+                                         ->where('id','5')
+                                           ->orWhere('name', 'like','%f')->get();
+
+            $students_orWhere_eg_2 = DB::table('students')
+                                         ->where('id','5')
+                                           ->orWhere('name', 'like','%f')
+                                             ->orWhere('name', 'like','A%')->get();
+
+            $students_orWhere_eg_3 = DB::table('students')
+                                         ->where('id','5')
+                                           ->orWhereBetween('id', [4,5])
+                                             ->orWhere('name', 'like','A%')->get();
 
  */
 
