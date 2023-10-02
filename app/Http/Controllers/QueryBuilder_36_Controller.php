@@ -76,6 +76,20 @@ class QueryBuilder_36_Controller extends Controller
                                            ->orWhereBetween('id', [4,5])
                                              ->orWhere('name', 'like','A%')->get();
 
+
+            $students_orderBy_asc = DB::table('students')->orderBy('id', 'asc')->get();
+            $students_orderBy_desc = DB::table('students')->orderBy('id', 'desc')->get();
+
+            $students_latest = DB::table('students')->latest('created_at')->get();
+            $students_latest_one_record_with_first_method = DB::table('students')->latest('created_at')->first();
+
+            $students_oldestst_one_record_with_first_method = DB::table('students')->oldest('created_at')->first();
+
+            $students_inRandomOrder = DB::table('students')->inRandomOrder()->get();
+            $students_inRandomOrder_one_row = DB::table('students')->inRandomOrder()->first();
+            dd($students_inRandomOrder_one_row);
+
+
         /*
         $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
             foreach ($students as $student) {
@@ -118,6 +132,15 @@ class QueryBuilder_36_Controller extends Controller
             'students_orWhere_eg_1'=> $students_orWhere_eg_1,
             'students_orWhere_eg_2'=> $students_orWhere_eg_2,
             'students_orWhere_eg_3'=> $students_orWhere_eg_3,
+
+            'students_orderBy_asc'=> $students_orderBy_asc,
+            'stuants_orderBy_desc'=> $students_orderBy_desc,
+
+            'students_latest'=> $students_latest,
+            'students_latest_one_record_with_first_method'=> $students_latest_one_record_with_first_method,
+            'students_oldestst_one_record_with_first_method'=> $students_oldestst_one_record_with_first_method,
+            'students_inRandomOrder'=> $students_inRandomOrder,
+            'students_inRandomOrder_one_row'=> $students_inRandomOrder_one_row,
 
          ]);
     }

@@ -501,29 +501,53 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//51:15                                         orderBy() Method
  /*
+
+            $students_orderBy_asc = DB::table('students')->orderBy('id', 'asc')->get();
+
+            $students_orderBy_desc = DB::table('students')->orderBy('id', 'desc')->get();
 
 
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//53:00                                         latest() Method
  /*
+        it deals mainly on dates only ,
+            it is similar to order by descinding method when it has get() method
+                to get the latest one row use latest with  firstt() method
+
+        just like that :
+
+            $students_latest = DB::table('students')->latest('created_at')->get();
+
+            $students_latest_one_record_with_first_method = DB::table('students')->latest('created_at')->first();
+
+ */
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//53:50                                         oldest() Method
+ /*
+        it shows the oldest date row of the rows
+
+        eg :
+
+            $students_oldestst_one_record_with_first_method = DB::table('students')->oldest('created_at')->first();
 
 
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//54:15                                         inRandomOrder() Method
  /*
+       get all rows randomly .
 
+        $students_inRandomOrder = DB::table('students')->inRandomOrder()->get();
 
- */
+        get one row randomly .
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
- /*
+        $students_inRandomOrder_one_row = DB::table('students')->inRandomOrder()->first();
 
 
  */
