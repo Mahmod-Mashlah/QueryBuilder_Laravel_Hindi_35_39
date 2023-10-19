@@ -89,8 +89,17 @@ class QueryBuilder_36_Controller extends Controller
             $students_inRandomOrder_one_row = DB::table('students')->inRandomOrder()->first();
 
             $students_groupBy_and_Having = DB::table('students')->groupBy('id')->having('id','>','3')->get();
-dd($students_groupBy_and_Having);
-        /*
+
+            $students_take = DB::table('students')->take(1)->get();
+            $students_take_latest = DB::table('students')->take(1)->latest()->get();
+            $students_skip_take = DB::table('students')->skip(3)->take(1)->get(); // begin from id=4
+
+            $students_limit = DB::table('students')->limit(2)->get(); //
+            $students_limit_with_offset = DB::table('students')->offset(5)->limit(2)->get(); //begin from id=6
+                dd($students_limit_with_offset);
+
+
+            /*
         $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
             foreach ($students as $student) {
                 echo 'chunk date : <br>';
@@ -141,6 +150,13 @@ dd($students_groupBy_and_Having);
             'students_oldestst_one_record_with_first_method'=> $students_oldestst_one_record_with_first_method,
             'students_inRandomOrder'=> $students_inRandomOrder,
             'students_inRandomOrder_one_row'=> $students_inRandomOrder_one_row,
+
+            'students_groupBy_and_Having'=> $students_groupBy_and_Having,
+            'students_take'=> $students_take,
+            'students_take_latest'=> $students_take_latest,
+            'students_skip_take'=> $students_skip_take,
+            'students_limit'=> $students_limit,
+            'students_limit_with_offset'=> $students_limit_with_offset,
 
          ]);
     }
