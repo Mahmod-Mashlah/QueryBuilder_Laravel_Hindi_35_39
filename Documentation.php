@@ -553,8 +553,24 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//55:44
  /*
+    Syntax :
+        $students_groupBy_and_Having = DB::table('students')->groupBy($groups)->having($column, $operator, $value, $boolean, $);
+
+    eg :
+            $students_groupBy_and_Having = DB::table('students')->groupBy('id')->having('id','>','3')->get();
+
+    - if you have ERROR like this :
+        Illuminate\Database\QueryException SQLSTATE[42000]: Syntax error or access violation: 1055 'lay.student.id' isn't in GROUP BY (SQL: select * from 'student' group by 'marks' having 'marks' > 50)
+
+        you can go to config->database.php :
+
+            Replace         'strict' => true,
+
+            with            'strict' => false,
+
+
 
 
  */
