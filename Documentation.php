@@ -590,15 +590,65 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//1:01:00                                       insert() , insertOrIgnore() method
  /*
+                    $student_insert = DB::table('students')->insert([
+                'name'=> 'test',
+                'email'=> 'test',
+                'city'=> 'test',
+            ]);
+                                            //////////////////////////////////
+
+            $student_insert_multiple_rows = DB::table('students')->insert([
+
+                  ['name'=> 'test1','email'=> 'email1','city'=> 'city1',],
+                  ['name'=> 'test2','email'=> 'email2','city'=> 'city2',],
+                  ['name'=> 'test3','email'=> 'email3','city'=> 'city3',],
+            ]);
+                                            //////////////////////////////////
+// 1:06:20                                          insertOrIgnore()
+
+        // to insert in the database like that if the id is not exist
+
+            $student_insertOrIgnore = DB::table('students')->insert([
+
+                'id'=> 1,
+                'name'=> 'test',
+                'email'=> 'test',
+                'city'=> 'test',
+            ]);
+                                            //////////////////////////////////
+// 1:07:41                                          insertGetId() Method
+
+            // Insert a new record and get the value of the primary key.
+
+            $student_insert_and_return_id_itself = DB::table('students')->insertGetId([
+
+                'name'=> 'test',
+                'email'=> 'test',
+                'city'=> 'test',
+            ]);
+
+        other Example :
+
+            $data = [
+                        'name' => 'John Doe',
+                        'email' => 'johndoe@example.com',
+                        'password' => bcrypt('secret'),
+                    ];
+
+        $id = DB::table('users')->insertGetId($data);
+
+        echo "Inserted user ID: " . $id;
+
+
 
 
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
- /*
+/*
 
 
  */

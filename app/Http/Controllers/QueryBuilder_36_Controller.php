@@ -96,7 +96,34 @@ class QueryBuilder_36_Controller extends Controller
 
             $students_limit = DB::table('students')->limit(2)->get(); //
             $students_limit_with_offset = DB::table('students')->offset(5)->limit(2)->get(); //begin from id=6
-                dd($students_limit_with_offset);
+
+            $student_insert = DB::table('students')->insert([
+                'name'=> 'test',
+                'email'=> 'test',
+                'city'=> 'test',
+            ]);
+
+            $student_insert_multiple_rows = DB::table('students')->insert([
+
+                  ['name'=> 'test1','email'=> 'email1','city'=> 'city1',],
+                  ['name'=> 'test2','email'=> 'email2','city'=> 'city2',],
+                  ['name'=> 'test3','email'=> 'email3','city'=> 'city3',],
+            ]);
+
+            $student_insertOrIgnore = DB::table('students')->insert([
+
+                'id'=> 1,
+                'name'=> 'test',
+                'email'=> 'test',
+                'city'=> 'test',
+            ]);
+
+            $student_insert_and_return_id_itself = DB::table('students')->insertGetId([
+
+                'name'=> 'test',
+                'email'=> 'test',
+                'city'=> 'test',
+            ]);
 
 
             /*
@@ -157,6 +184,13 @@ class QueryBuilder_36_Controller extends Controller
             'students_skip_take'=> $students_skip_take,
             'students_limit'=> $students_limit,
             'students_limit_with_offset'=> $students_limit_with_offset,
+
+            // insert Data
+            'student_insert'=> $student_insert,
+            'student_insert_multiple_rows'=> $student_insert_multiple_rows,
+            'student_insertOrIgnore'=> $student_insertOrIgnore,
+            'student_insert_and_return_id_itself'=> $student_insert_and_return_id_itself,
+
 
          ]);
     }
