@@ -647,16 +647,44 @@
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//1:09:00                                           update() Method
 /*
+
+
+            $student_update = DB::table('students')
+                ->where('id', 2)
+                    ->update([
+
+                        'name'=> 'updated_name',
+                        'email'=> 'updated_email',
+                        'city'=> 'updated_city',
+
+                             ]);
+                                            //////////////////////////////////
+                                                    updateOrInsert() Method
+
+            $student_updateOrInsert = DB::table('students')
+                ->where('id', 2)
+                    ->updateOrInsert([
+
+                        'name'=> 'updated_name',
+                        'email'=> 'updated_email',
+                        'city'=> 'updated_city',
+
+                             ]);
+                                            //////////////////////////////////
+                                                    updateOrInsert() Multiple Methods 😁😀😀
+
+        //1:13:30
+
 
 
  */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
+//1:19:10                                           delete() Method
  /*
-
+        $student_Delete = DB::table('students')->delete();
 
  */
 

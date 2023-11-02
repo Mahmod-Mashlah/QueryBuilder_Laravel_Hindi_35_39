@@ -125,6 +125,36 @@ class QueryBuilder_36_Controller extends Controller
                 'city'=> 'test',
             ]);
 
+            // Update() Methods :
+
+            $student_update = DB::table('students')
+                ->where('id', 2)
+                    ->update([
+
+                        'name'=> 'updated_name',
+                        'email'=> 'updated_email',
+                        'city'=> 'updated_city',
+
+                             ]);
+
+            $student_updateOrInsert = DB::table('students')
+                ->where('id', 2)
+                    ->updateOrInsert([
+
+                        'name'=> 'updated_name',
+                        'email'=> 'updated_email',
+                        'city'=> 'updated_city',
+
+                             ]);
+
+
+            // Delete() method :
+
+            $student_Delete = DB::table('students')->where('id','=',5)->delete();
+
+            //Truncate() method
+
+            DB::table('students')->truncate();
 
             /*
         $students_chunk = DB::table('students')->orderBy('id')->chunk(3,function ($students) {
@@ -190,6 +220,12 @@ class QueryBuilder_36_Controller extends Controller
             'student_insert_multiple_rows'=> $student_insert_multiple_rows,
             'student_insertOrIgnore'=> $student_insertOrIgnore,
             'student_insert_and_return_id_itself'=> $student_insert_and_return_id_itself,
+
+            'student_update'=> $student_update,
+            'student_updateOrInsert'=> $student_updateOrInsert,
+
+            'student_Delete'=> $student_Delete,
+            'student_truncate'=> 'truncate at line 157',
 
 
          ]);
